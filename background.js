@@ -7,20 +7,10 @@ chrome.contextMenus.create({
 
 ///////////////////////////////Send to top right click//
 chrome.contextMenus.onClicked.addListener(function(info){
-  selectedtext = info.selectionText
-    var request = new XMLHttpRequest();
-    request.open('GET',"https://www.googleapis.com/customsearch/v1?q="+selectedtext+"&cx=003698229636584901938%3Aphcqygc4eow&num=10&searchType=image&key=AIzaSyAtOATS6Oexri75oO_ykPXR4QzsZ8AX0-o" , true);
-    request.setRequestHeader('Accept', 'application/json');
-    request.send()
-    request.onreadystatechange = function () {
-      if (request.readyState == 4) {
-        if (request.status == 200){ 
-          data = request.responseText; 
-          var jsonResponse = JSON.parse(data);
-          items = jsonResponse.items;
-         let images = items.map(items =>  items.link )
-         console.log(images)
-        }
-      }
-    }
-  })
+          function popup(){var w = 850;
+      var h = 570;
+      var left = (screen.width/2)-(w/2);
+      var top = (screen.height/2)-(h/2); 
+      chrome.windows.create({'url': 'dotjpg.html', 'type': 'popup', 'width': w, 'height': h, 'left': left, 'top': top} )}
+      popup()    
+          })
