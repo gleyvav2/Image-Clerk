@@ -1,9 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
 btnsubmit = document.getElementById('btnsubmit');
+new Glider(document.querySelector('.glider'), {
+  slidesToShow: 1,
+  dots: '#dots',
+  draggable: true,
+  arrows: {
+    prev: '.glider-prev',
+    next: '.glider-next'
+  }
+});
+
+
 btnsubmit.addEventListener('click', function(){
-    container = document.getElementById('container')
-    container.innerHTML = "";
 btnsubmit1 = document.getElementById("submitvalue").value;
+function searchie(){
+  container = document.getElementById('container')
+  container.innerHTML = "";
 var searchNumber = 1
 var request = new XMLHttpRequest();
     request.open('GET',"https://www.googleapis.com/customsearch/v1?q="+btnsubmit1+"&cx=003698229636584901938%3Aphcqygc4eow&num=6&searchType=image&start="+searchNumber+"&key=AIzaSyAtOATS6Oexri75oO_ykPXR4QzsZ8AX0-o" , true);
@@ -32,13 +44,21 @@ var request = new XMLHttpRequest();
         reloadpls = 1
 console.log(jsonResponse)
 
-    }
+    }}
 
+}}
 
-        }}}})
-        next6 = document.getElementById('next6');
-        next6.addEventListener('click', function(){
-        })
+}
+searchie()   
+next6 = document.getElementById('next6');
+next6.addEventListener('click', function(){
+  container = document.getElementById('container')
+  container.innerHTML = "";
+  console.log("next")
+  searchie() 
+})   
+})
+
 
  
       
