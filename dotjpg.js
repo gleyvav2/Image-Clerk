@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
 btnsubmit = document.getElementById('btnsubmit');
 gliderhead = document.querySelector("#gliderhead")
 gliderhead.style.display = "none"
+
 btnsubmit.addEventListener('click', function(){
 btnsubmit1 = document.getElementById("submitvalue").value;
 function searchie(){
-  container = document.getElementById('container')
-  container.innerHTML = "";
+$( "#gliderhead" ).load(window.location.href + " #gliderhead" );
 var searchNumber = 1
 var request = new XMLHttpRequest();
     request.open('GET',"https://www.googleapis.com/customsearch/v1?q="+btnsubmit1+"&cx=003698229636584901938%3Aphcqygc4eow&num=10&searchType=image&start="+searchNumber+"&key=AIzaSyAtOATS6Oexri75oO_ykPXR4QzsZ8AX0-o" , true);
@@ -27,7 +27,8 @@ var request = new XMLHttpRequest();
         x.setAttribute("src", imagesTN[i]);
         x.setAttribute("width", "210");
         x.setAttribute("height", "125");
-        x.setAttribute("href", images[i]);
+        x.setAttribute("data-zoom-src", images[i]);
+        x.setAttribute("id", "zoom-default");
         container.appendChild(div)
         div.appendChild(x);
     }
@@ -35,13 +36,16 @@ var request = new XMLHttpRequest();
     new Glider(document.querySelector('.glider'), {
       slidesToShow: 4,
       slidesToScroll: 4,
-      draggable: true,
+      draggable: false,
       dots: '.dots',
       arrows: {
         prev: '.glider-prev',
         next: '.glider-next'
       }
     });
+    const zoomDefault = mediumZoom('#zoom-default',{   background: 'rgba(25, 18, 25, .9)',
+  })
+
     document.querySelector('.glider').addEventListener('glider-slide-visible', function(event){
       var imgs_to_anticipate = 3;
       var glider = Glider(this);
@@ -53,7 +57,6 @@ var request = new XMLHttpRequest();
         })
       }
     });
-    
     function loadImages(callback){
       [].forEach.call(this.querySelectorAll('img'),function(img){
         var _img = new Image,  _src = img.getAttribute('data-src');
@@ -72,6 +75,9 @@ var request = new XMLHttpRequest();
 
 }
 searchie()   
+window.addEventListener("keydown", function(e){
+  if(e.keyCode == 13){ btnsubmit1 = document.getElementById("submitvalue").value;
+ searchie() }})
 })      
  }
 )
