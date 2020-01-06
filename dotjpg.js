@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
 btnsubmit = document.getElementById('btnsubmit');
 gliderhead = document.querySelector("#gliderhead")
 gliderhead.style.display = "none"
-
 btnsubmit.addEventListener('click', function(){
 btnsubmit1 = document.getElementById("submitvalue").value;
 function searchie(){
@@ -30,8 +29,26 @@ var request = new XMLHttpRequest();
         x.setAttribute("data-zoom-src", images[i]);
         x.setAttribute("id", "zoom-default");
         container.appendChild(div)
+        btn = document.createElement("button")
+        btn.setAttribute("id","Expand")
+        btn.setAttribute("data-zoom-src", images[i]);
+        btn.innerHTML = 'Expand';
+        btn2 = document.createElement("button")
+        btn2.setAttribute("id","save")
+        btn2.setAttribute("data-zoom-src", images[i]);
+        btn2.innerHTML = 'save'
         div.appendChild(x);
+        div.appendChild(btn);
+        div.appendChild(btn2);
+        btnexpand = document.getElementById('Expand');
     }
+    btnexpand.addEventListener('click', function(){
+      var w = 850;
+         var h = 320;
+         url = images
+         var left = (screen.width/2)-(w/2);
+         var top = (screen.height/2)-(h/2); 
+         chrome.windows.create({'url': images, 'type': 'popup', 'width': w, 'height': h, 'left': left, 'top': top} )})
     gliderhead.style.display = "block"
     new Glider(document.querySelector('.glider'), {
       slidesToShow: 4,
@@ -44,6 +61,7 @@ var request = new XMLHttpRequest();
       }
     });
     const zoomDefault = mediumZoom('#zoom-default',{   background: 'rgba(25, 18, 25, .9)',
+
   })
 
     document.querySelector('.glider').addEventListener('glider-slide-visible', function(event){
