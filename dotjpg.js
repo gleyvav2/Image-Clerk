@@ -55,16 +55,21 @@ var request = new XMLHttpRequest();
       }
     });
     const zoomDefault = mediumZoom('#zoom-default',{background: 'rgba(25, 18, 25, .9)',})
-    document.getElementById('Expand' + 1).addEventListener('click', function(){
-            urlbtn = this.dataset.zoomSrc
-            console.log(urlbtn)
-            var w = 800;
-               var h = 600;
-               url = urlbtn
-               var left = (screen.width/2)-(w/2);
-               var top = (screen.height/2)-(h/2); 
-               chrome.windows.create({'url': url, 'type': 'popup', 'width': w, 'height': h, 'left': left, 'top': top}) 
-    })
+
+    for (i = 0; i < imagesTN.length; i++) {
+   Getall =  document.getElementById('Expand' + i).addEventListener('click', function(){
+    urlbtn = this.dataset.zoomSrc
+    console.log(urlbtn)
+    var w = 800;
+       var h = 600;
+       url = urlbtn
+       var left = (screen.width/2)-(w/2);
+       var top = (screen.height/2)-(h/2); 
+       chrome.windows.create({'url': url, 'type': 'popup', 'width': w, 'height': h, 'left': left, 'top': top}) 
+  
+  })
+    }
+
 
     document.querySelector('.glider').addEventListener('glider-slide-visible', function(event){
       var imgs_to_anticipate = 3;
