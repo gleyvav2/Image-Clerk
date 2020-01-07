@@ -20,6 +20,7 @@ var request = new XMLHttpRequest();
          let imagesTN = items.map(items => items.image.thumbnailLink )
          let images = items.map(items => items.link )
          container = document.querySelector("#glider")
+         var counter = 0 
         for (i = 0; i < imagesTN.length; i++) {
         div = document.createElement("div")
         var x = document.createElement("IMG");
@@ -30,7 +31,7 @@ var request = new XMLHttpRequest();
         x.setAttribute("id", "zoom-default");
         container.appendChild(div)
         btn = document.createElement("button")
-        btn.setAttribute("id","Expand")
+        btn.setAttribute("id","Expand" + counter++)
         btn.setAttribute("data-zoom-src", images[i]);
         btn.innerHTML = 'Expand';
         btn2 = document.createElement("button")
@@ -40,15 +41,8 @@ var request = new XMLHttpRequest();
         div.appendChild(x);
         div.appendChild(btn);
         div.appendChild(btn2);
-        btnexpand = document.getElementById('Expand');
-    }
-    btnexpand.addEventListener('click', function(){
-      var w = 850;
-         var h = 320;
-         url = images
-         var left = (screen.width/2)-(w/2);
-         var top = (screen.height/2)-(h/2); 
-         chrome.windows.create({'url': images, 'type': 'popup', 'width': w, 'height': h, 'left': left, 'top': top} )})
+        
+    } 
     gliderhead.style.display = "block"
     new Glider(document.querySelector('.glider'), {
       slidesToShow: 4,
@@ -60,9 +54,17 @@ var request = new XMLHttpRequest();
         next: '.glider-next'
       }
     });
-    const zoomDefault = mediumZoom('#zoom-default',{   background: 'rgba(25, 18, 25, .9)',
-
-  })
+    const zoomDefault = mediumZoom('#zoom-default',{background: 'rgba(25, 18, 25, .9)',})
+    document.getElementById('Expand' + 1).addEventListener('click', function(){
+            urlbtn = this.dataset.zoomSrc
+            console.log(urlbtn)
+            var w = 800;
+               var h = 600;
+               url = urlbtn
+               var left = (screen.width/2)-(w/2);
+               var top = (screen.height/2)-(h/2); 
+               chrome.windows.create({'url': url, 'type': 'popup', 'width': w, 'height': h, 'left': left, 'top': top}) 
+    })
 
     document.querySelector('.glider').addEventListener('glider-slide-visible', function(event){
       var imgs_to_anticipate = 3;
