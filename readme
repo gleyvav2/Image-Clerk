@@ -1,8 +1,0 @@
-API = AIzaSyAtOATS6Oexri75oO_ykPXR4QzsZ8AX0-o
-
-
-copy to clipboard extension
-
-GET https://www.googleapis.com/customsearch/v1?q=meme%20aight%20im&cx=003698229636584901938%3Aphcqygc4eow&num=10&searchType=image&key=[YOUR_API_KEY] HTTP/1.1
-
-Accept: application/json
