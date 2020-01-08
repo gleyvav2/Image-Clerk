@@ -37,11 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
             btn2.setAttribute("id","save" + i)
             btn2.setAttribute("class","uk-button uk-button-secondary")
             btn2.setAttribute("href", imagesTN[i]);
-            btn2.setAttribute("download", "");
-            btn2.innerHTML = 'save'
+            btn2.setAttribute("extension", images[i]);
+            btn2.innerHTML = 'Copy'
             div.appendChild(x);
             div.appendChild(btn);
             div.appendChild(btn2);
+            extension = btn2.attributes.extension.value.match(/[^/]+(png)$/)
+            if ( extension == null){btn2.setAttribute ("disabled","")}
             
         } 
         gliderhead.style.display = "block"
@@ -71,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (i = 0; i < imagesTN.length; i++) {
           Getall =  document.getElementById('save' + i).addEventListener('click', function(){
            urlbtn = this.attributes.href.value
-           async function gg () {try {
+            async function gg () {try {
             const imgURL = urlbtn;
             const data = await fetch(imgURL);
             const blob = await data.blob();
@@ -80,16 +82,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 [blob.type]: blob
               })
             ]);
+            status = "success"
+            UIkit.notification({message:'<span uk-icon=\'icon: check\'></span> Imaged saved to clipboard'}, status);
+
           } catch(e) {
           }
-    
         }
-        gg()
+        gg() //////////////////////Fires copy feature /////////////
       }   
-
          )
         }
-        
       }
     
     }}
