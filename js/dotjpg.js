@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   gliderhead = document.querySelector("#gliderhead")
   gliderhead.style.display = "none"
   function searchie(){
-    $( "#gliderhead" ).load(window.location.href + " #gliderhead" );
+    $( "#gliderhead" ).load(window.location.href + " #gliderhead>*" );
     var searchNumber = 1
     var request = new XMLHttpRequest();
         request.open('GET',"https://www.googleapis.com/customsearch/v1?q="+btnsubmit1+"&cx=003698229636584901938%3Aphcqygc4eow&num=10&searchType=image&start="+searchNumber+"&key=AIzaSyAtOATS6Oexri75oO_ykPXR4QzsZ8AX0-o" , true);
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             btn2 = document.createElement("button")
             btn2.setAttribute("id","save" + i)
             btn2.setAttribute("class","uk-button uk-button-secondary")
-            btn2.setAttribute("href", images[i]);
+            btn2.setAttribute("href", imagesTN[i]);
             btn2.setAttribute("download", "");
             btn2.innerHTML = 'save'
             div.appendChild(x);
@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
         for (i = 0; i < imagesTN.length; i++) {
           Getall =  document.getElementById('Expand' + i).addEventListener('click', function(){
            urlbtn = this.dataset.zoomSrc
-           console.log(urlbtn)
            var w = 800;
               var h = 600;
               url = urlbtn
@@ -72,18 +71,23 @@ document.addEventListener('DOMContentLoaded', function () {
         for (i = 0; i < imagesTN.length; i++) {
           Getall =  document.getElementById('save' + i).addEventListener('click', function(){
            urlbtn = this.attributes.href.value
-           function copyTextToClipboard(text) {
-            var copyFrom = $('<textarea/>');
-            copyFrom.text(text);
-            $('body').append(copyFrom);
-            copyFrom.select();
-            document.execCommand('copy');
-            copyFrom.remove();
+           async function gg () {try {
+            const imgURL = urlbtn;
+            const data = await fetch(imgURL);
+            const blob = await data.blob();
+            await navigator.clipboard.write([
+              new ClipboardItem({
+                [blob.type]: blob
+              })
+            ]);
+          } catch(e) {
+          }
+    
         }
-        
-        // Usage example
-        copyTextToClipboard(urlbtn);
-         })
+        gg()
+      }   
+
+         )
         }
         
       }
@@ -97,6 +101,4 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener("keydown", function(e){
     if(e.keyCode == 13){ btnsubmit1 = document.getElementById("submitvalue").value;
    searchie() }})
-  })      
-
-  
+  })
