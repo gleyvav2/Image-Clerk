@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function searchie() {
       document.querySelector("#mainbody").style.display = "none"
+      document.querySelector("#gliderhead").style.display = "none"
       $("#gliderhead").load(window.location.href + " #gliderhead>*");
       var searchNumber = 1
       var request = new XMLHttpRequest();
@@ -18,8 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
                   data = request.responseText;
                   var jsonResponse = JSON.parse(data);
                   items = jsonResponse.items;
+                  console.log(items)
                   let imagesTN = items.map(items => items.image.thumbnailLink)
                   let images = items.map(items => items.link)
+                  let imageh = items.map(items => items.image.height)
+                  let imagew = items.map(items => items.image.width)
                   container = document.querySelector("#glider")
                   for (i = 0; i < imagesTN.length; i++) {
                       div = document.createElement("div")
@@ -51,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                   }
                   gliderhead.style.display = "block"
-                  new Glider(document.querySelector('.glider'), {
+                   new Glider(document.querySelector('.glider'), {
                       slidesToShow: 4,
                       slidesToScroll: 4,
                       draggable: false,
@@ -60,7 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
                           prev: '.glider-prev',
                           next: '.glider-next'
                       }
-                  });
+
+                  }
+
+                  );
+
                   const zoomDefault = mediumZoom('#zoom-default', {
                       background: 'rgba(25, 18, 25, .9)',
                   })
@@ -112,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
   }
+
   btnsubmit.addEventListener('click', function() {
       btnsubmit1 = document.getElementById("submitvalue").value;
       searchie()

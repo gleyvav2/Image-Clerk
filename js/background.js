@@ -1,7 +1,7 @@
 ///////////////////////////////Create right click//
 chrome.contextMenus.create({
   "id":"DotJpg",
-  "title": "DotJpg",
+  "title": "Image Clerk",
   "contexts": ["all"],
 })
 
