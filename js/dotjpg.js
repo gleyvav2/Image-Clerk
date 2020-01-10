@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
   $('form').submit(false);
   btnsubmit = document.getElementById('btnsubmit');
   gliderhead = document.querySelector("#gliderhead")
   gliderhead.style.display = "none"
 
   function searchie() {
+    counter()
       document.querySelector("#mainbody").style.display = "none"
       document.querySelector("#gliderhead").style.display = "none"
       $("#gliderhead").load(window.location.href + " #gliderhead>*");
@@ -131,4 +133,22 @@ document.addEventListener('DOMContentLoaded', function() {
           searchie()
       }
   })
+    var donatebtn = document.getElementById('tutorial');  
+    donatebtn.addEventListener('click', function() {
+        window.location = "./tutorial/tutorial.html";
+
+      })
+    var Upgrade = document.getElementById('Upgrade'); 
+    chrome.storage.local.get('removeupgrade', function(result) { 
+    if (result.removeupgrade == 1){ document.getElementById('Upgrade').style.setProperty("display", "none", "important");}
+    else
+    Upgrade.addEventListener('click', function() {
+        console.log("upgrade")
+      var w = 550;
+      var h = 440;
+      var left = (screen.width/2)-(w/2);
+      var top = (screen.height/2)-(h/2); 
+      chrome.windows.create({'url': 'upgrade.html', 'type': 'popup', 'width': w, 'height': h, 'left': left, 'top': top} )
+      window.close()
+    })})
 })

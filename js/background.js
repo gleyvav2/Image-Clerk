@@ -5,9 +5,9 @@ chrome.contextMenus.create({
   "contexts": ["all"],
 })
 
-///////////////////////////////Send to top right click//
+///////////////////////////////Open menu anywhere//
 chrome.contextMenus.onClicked.addListener(function(info){
-          function popup(){var w = 850;
+      function popup(){var w = 850;
       var h = 360;
       var left = (screen.width/2)-(w/2);
       var top = (screen.height/2)-(h/2); 

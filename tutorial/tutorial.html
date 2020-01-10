@@ -1,65 +1,84 @@
-<style>
-    
-    h3{    border-style: offset;
-    }
-    </style>
+<!DOCTYPE html>
+<html >
+<head><title>Image Clerk Help</title></head>
+<body>
+    <script type="text/javascript" src="/js/dotjpg.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/glider.css">
+    <link rel="stylesheet" type="text/css" href="/css/uikit.min.css">
+    <script src="/js/auth.js"></script>
+    <script src="/js/glider.js"></script>
+    <script src="/js/medium-zoom.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/uikit.min.js"></script>
+    <script src="/js/uikit-icons.min.js"></script>
 
-<div id="main" style="width: 100%; height: 100%; text-align: center; ">
-    <div id="leftmenu" style="float: left;">
-   <p style="float: left;margin-right:10px" >Instruction shortcuts</p><br>
-   <a href="#docs" ">Google Docs </a><br> 
-   <a href="#sms" >Text Messages </a><br>
-   <a href="#faq">FAQ</a><br>
-</div>
-<div id="maintop" style="display: flow-root;margin-right: 60px;">
-    <h1 style="text-align: center;">Thank you for choosing Send 2</h1>
-    <p style="font-size: 16px; text-align: center;">With this easy app you'll be able to send selected text to a selected google doc<br />More will be added soon (SMS,Sheets,Facebook,etc)</p>
-    <p style="font-size: 16px; text-align: center;">If you find the app useful, please support me by donating at: <a id="donate" href="https://ko-fi.com/send22">https://ko-fi.com/send22</a></p>
-    <p style="font-size: 16px; text-align: center;">If you need help with anything or have any feedback please email me at <a href="mailto: gus@geekspired.com">Gus@geekspired.com</a></p>
-</div>
-    <h1 id="docs">Google Docs Instructions:</h1>
-    <hr>
-    <br/>
-    <table  style="margin-left: auto; text-align: center; margin-right: auto;height: 494px;" cellpadding="2%">
-    <tbody>
-    <tr style="height: 500px;">
-    <td style="width: 30%;vertical-align: text-top;"><h3>1.-This button will allow you to change to the Google Docs settings to send documents to</h3>
-    </br></br></br></br></br></br></br></br>
-    <h3>4.-This dropdown will allow you to select where you want your text to be added to; Top or Bottom of the google document</h3>
-    <h3>5.-This button will send the currently opened website URL link to the selected google document</h3>   
-    </td>
-    <td style="width: 90px;"><img src="tutorial.jpg" width="500px" /></a></td>
-    <td style="width: 30%;vertical-align: text-top;"><h3>2.-This button will allow you to switch to the text message(SMS) menu</h3></br></br></br></br>
-    <h3>3.- Clicking this button will allow you to authorize Send2 to connect your google documents to send information to</h3>
-</br></br></br></br></br>
-<h3>6.-If you're feeling generous and you're enjoying the app, please feel free to donate to help further develope the app</h3>
-</br><h3>7.-This link will take you back to this screen</h3>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-    <h1 id="sms">Text Messages (SMS) Instructions:</h1>
-    <hr>
-    <br />
-    <table style="margin-left: auto; text-align: center; margin-right: auto;height: 494px;" cellpadding="2%">
-    <tbody>
-    <tr style="height: 500px;">
-    <td style="width: 30%;vertical-align: text-top;"><h3>1.-This button will allow you to change to the Google Docs settings to send documents to</h3>
-    </br></br></br></br></br></br></br></br><br><br><br><br><br><br><br>
-    
-    <h3>5.-If you're feeling generous and you're enjoying the app, please feel free to donate to help further develope the app</h3>
+    <style>
+        .uk-button {
+            padding: 0 15px !important;
+        }
+        .glider-next {
+    right: -35px !important;
+}
+.glider-prev{
+    left: -35px !important;
+}
 
-    </td>
-    <td style="width: 90px;"><img src="sms.jpg" width="500px" /></a></td>
-    <td style="width: 30%;vertical-align: text-top;"><h3>2.-This button will allow you to switch to the text message(SMS) menu</h3></br></br></br></br>
-    <h3>3.- Clicking this button will send the current URL to the phone number saved below</h3>
-</br></br></br></br></br>    <h3>4.- Add the phone number that will recieve the text message and press save</h3>
+</style>
+    <div id="main" style=width:100%;height:320;Text-align:center;font-size:14px;>
 
-</br></br></br></br><h3>6.-This link will take you back to this screen</h3>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-    <h1 id="faq">FAQ:</h1>
-    <h3>Nothing yet but if you have any questions please feel free to contact me at <a href="mailto: gus@geekspired.com">Gus@geekspired.com</a></h3>
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+        
+                <ul class="uk-navbar-nav" >
+                    <li class="uk-active"><a href="#">Image Clerk</a></li>
+                    <li><a id="Upgrade" href="#">Upgrade!</a></li>
+
+                    <li><a href="#">Help</a></li>
+                </ul>
+        
+            </div>
+            <div class="uk-navbar-right">
+
+                <div class="uk-navbar-item">
+                    <form class="uk-search uk-search-navbar" action="#" >
+                        <a id="btnsubmit" class="uk-search-icon-flip" uk-search-icon></a>
+                        <input class="uk-search-input" id="submitvalue" type="search" placeholder="Search..." autofocus>
+                    </form>
+                </div>
+        
+            </div>
+        </nav>
+<hr style="margin-top:0 !important;">
+ <div id="mainbody">
+<h5 class='uk-heading-bullet' style="padding: 10px;">
+To begin click on the search bar above, type your query and click the magnifying glass or hit enter.</h5>
+<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-box-shadow-large  uk-padding" uk-grid 
+style="width: 600px;
+    background-color: cornsilk;
+    margin-left: 30px;">
+    <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
+        <img src="/tutorial/tutorial.png" alt="" uk-cover style="width: 709px;height: 312px;margin: 28px;">
+        <canvas width="600" height="400"></canvas>
     </div>
+    <div>
+        <div class="uk-card-body">
+            <h3 class="uk-card-title">Attention!</h3>
+            <p>Unfortunately due to Google's limitations, you're only allowed to copy certain pictures by pressing the copy button,if the picture copies successfuly a message will display like the image on the right.</p>
+            <p class="uk-text-bold	">Per Google more images will be suported soon</p>
+        </div>
+    </div>
+</div>
+ </div>
+ <br>
+
+<div id="gliderhead" class="glider-contain" style="width: 90%;">
+    <div id="glider" class="glider">
+    </div>
+    <button role="button" aria-label="Previous" class="glider-prev"><</button>
+    <button role="button" aria-label="Next" class="glider-next">></button>
+    <div role="tablist" class="dots"></div>
+  </div>
+</div>
+
+</body>
+</html>
