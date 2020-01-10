@@ -124,20 +124,37 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   btnsubmit.addEventListener('click', function() {
+    chrome.storage.local.get('showstopper', function(result) {
+        if (result.showstopper == 1){stopped()}
+        else {   
       btnsubmit1 = document.getElementById("submitvalue").value;
       searchie()
-  })
-  window.addEventListener("keydown", function(e) {
+        }})})
+
+    window.addEventListener("keydown", function(e) {
       if (e.keyCode == 13) {
+          chrome.storage.local.get('showstopper', function(result) {
+      if (result.showstopper == 1){stopped()}
+      else { 
+
           btnsubmit1 = document.getElementById("submitvalue").value;
           searchie()
-      }
-  })
-    var donatebtn = document.getElementById('tutorial');  
-    donatebtn.addEventListener('click', function() {
-        window.location = "./tutorial/tutorial.html";
+      }})}})
+        var logo = document.getElementById('logo');  
+        logo.addEventListener('click', function() {
+            var newURL = "https://www.geekspired.com";
+            chrome.tabs.create({ url: newURL });
+          })
+      
 
-      })
+
+    var lastTitle = "Image Clerk";
+        if (lastTitle == document.title) {
+            var donatebtn = document.getElementById('tutorial');  
+            donatebtn.addEventListener('click', function() {
+                window.location = "./tutorial/tutorial.html";
+            })}
+
     var Upgrade = document.getElementById('Upgrade'); 
     chrome.storage.local.get('removeupgrade', function(result) { 
     if (result.removeupgrade == 1){ document.getElementById('Upgrade').style.setProperty("display", "none", "important");}

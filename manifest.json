@@ -14,7 +14,7 @@
     "48": "icon.png",
     "128": "icon.png"},
   "permissions":["identity","contextMenus","storage","notifications","tabs","activeTab","clipboardWrite"],  
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://apis.google.com/  ; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://apis.google.com/*  ; object-src 'self'",
   "oauth2": {
     "client_id": "481015228871-0ngiisgdlp43usasbh7u5t9oflfmh0vl.apps.googleusercontent.com",
     "scopes":["https://www.googleapis.com/auth/chromewebstore.readonly"]
