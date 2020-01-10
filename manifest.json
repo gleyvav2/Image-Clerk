@@ -3,7 +3,7 @@
   "name": "Image Clerk",
   "key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgfGa0WZeF3a0Gy87QRSJDQsAt+e3gGnHdCobv2IE8QQLrsh8HoS8x6GJwISxpax+KURX5GQOFyBZ1qVyBhYxYRrwaKJ6qeXYzRRx6PJEZDVwiB3tRdxCcd+90Nf28Wl4zq42Pj5Nat/Ze1skFG/S0oqoB3Mk6D073w0qtT140G12DDIjDoRS9KMKc7nqBBn/CvMWl7TNGkD81liG/q3XFZFJ5bq7Mmg8zVrquETAcB9XUyRJSS+AKKSrSJyyz6cl+AWcLeTYX54JY28Q0jhbGspe6iXSfEuDZUHEdP4k4UX+6oeZNQQzCIajy7w3/DaE+1jcSfMRbbOMcaJAbYeUiQIDAQAB",
   "description": "Search google's images, copy, download and paste fast",
-  "version": "0.01",
+  "version": "1.00",
   "author": "Gus Leyva",
   "background": {
   "scripts": ["js/background.js","js/glider.js"]
