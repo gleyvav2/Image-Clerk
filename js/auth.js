@@ -20,7 +20,6 @@ currentdaystring = myDate.toLocaleDateString()
 //////////////////////////Start verifying license ////////////////
 chrome.storage.local.get('globalcount', function(result) {
   var finalcount = result.globalcount
-  console.log(finalcount)
 chrome.storage.local.get('showstopper', function(result) {
   showstopper = result.showstopper
 chrome.storage.local.get('currentdaystring', function(result) {

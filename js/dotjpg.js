@@ -21,13 +21,17 @@ document.addEventListener('DOMContentLoaded', function() {
                   data = request.responseText;
                   var jsonResponse = JSON.parse(data);
                   items = jsonResponse.items;
-                  console.log(items)
+                  results = jsonResponse.searchInformation.formattedTotalResults
+                  console.log(results)
                   let imagesTN = items.map(items => items.image.thumbnailLink)
                   let images = items.map(items => items.link)
                   let imageh = items.map(items => items.image.height)
                   let imagew = items.map(items => items.image.width)
                   container = document.querySelector("#glider")
                   for (i = 0; i < imagesTN.length; i++) {
+                      var resolution = document.createElement("p")
+                      resolution.innerHTML = imagew[i] + "x" + imageh[i] 
+                      resolution.setAttribute("style","margin-bottom:5px !important")
                       div = document.createElement("div")
                       var x = document.createElement("IMG");
                       x.setAttribute("src", imagesTN[i]);
@@ -47,12 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
                       btn2.setAttribute("href", imagesTN[i]);
                       btn2.setAttribute("extension", images[i]);
                       btn2.innerHTML = 'Copy'
+                      div.appendChild(resolution);
                       div.appendChild(x);
                       div.appendChild(btn);
                       div.appendChild(btn2);
                       extension = btn2.attributes.extension.value.match(/[^/]+(png)$/)
                       if (extension == null) {
                           btn2.setAttribute("disabled", "")
+                          btn2.setAttribute("title", "Image file currently not supported")
                       }
 
                   }
