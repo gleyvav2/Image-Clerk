@@ -38,6 +38,7 @@ req.onreadystatechange = function() {
   if (req.readyState == 4) {
     var license = JSON.parse(req.responseText);
     var licenseStatus;
+    console.log(license)
 if (license.result && license.accessLevel == "FULL") {
   licenseStatus = "FULL";
 if (licenseStatus == "FULL") { dailylimitchecker = 100
@@ -59,6 +60,7 @@ req.send()
 chrome.storage.local.get('dailylimitchecker', function(result) {
 if (finalcount >= result.dailylimitchecker ) { 
   showstopper = 1
+  console.log(showstopper)
   chrome.storage.local.set({"currentdaystring":currentdaystring}, function() {
   })
 }else  {showstopper = 0 }
