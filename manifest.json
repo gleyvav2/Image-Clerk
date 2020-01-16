@@ -13,7 +13,7 @@
     "32": "icon.png",
     "48": "icon.png",
     "128": "icon.png"},
-  "permissions":["identity","contextMenus","storage","notifications","tabs","activeTab","clipboardWrite","https://www.googleapis.com/"],  
+  "permissions":["identity","contextMenus","storage","tabs","clipboardWrite"],  
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://apis.google.com/*  ; object-src 'self'",
   "oauth2": {
     "client_id": "440760221350-n1pt3apc9b1ovqt5a14bdf6teblr5c9s.apps.googleusercontent.com",
