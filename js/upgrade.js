@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'parameters': {
             'env': 'prod'
         },
-        'sku': 'aochhbmlpoajkklegodlhegiebkabjmf',
+        'sku': 'upgrade',
         'success': purchaseInfo => onPurchase(false, purchaseInfo),
         'failure': reason => onPurchase(true, reason)
     });

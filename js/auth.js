@@ -38,14 +38,13 @@ req.onreadystatechange = function() {
   if (req.readyState == 4) {
     var license = JSON.parse(req.responseText);
     var licenseStatus;
-    console.log(license)
 if (license.result && license.accessLevel == "FULL") {
   licenseStatus = "FULL";
 if (licenseStatus == "FULL") { dailylimitchecker = 100
   removeupgrade = 1
       chrome.storage.local.set({"removeupgrade":removeupgrade}, function() {})
 }
-} else if (license.result && license.accessLevel == "FREE_TRIAL") {
+} else if (license.result  == false) {
     licenseStatus = "FREE_TRIAL";
     if (licenseStatus == "FREE_TRIAL") { dailylimitchecker = 15
       removeupgrade = 0
